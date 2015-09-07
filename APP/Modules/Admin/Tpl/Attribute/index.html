@@ -1,0 +1,66 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <title>index</title>
+    <include file="Common:bootstrap_jsjqcss" />
+
+    <style type="text/css">
+        body{
+            padding-top: 50px;padding-bottom: 40px;
+            background-color:  #ccc;
+            /*定位背景图像*/
+            background-position:center 0;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            /*规定背景图像的尺寸,cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
+            background-size:cover;-webkit-background-size:cover;-o-background-size:cover;
+        }
+    </style>
+</head>
+<body>
+    <style type="text/css">
+        .container .row{
+            height: 55px;
+            background-color: #fff;
+        }
+    </style>
+
+    <include file="Common:nav" />
+
+    <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
+      <div class="container" style="color:#fff;">
+        <h1>Welcome to freescale</h1>
+              <p>...</p>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      </div>
+    </div>
+
+    <div class="container">
+        <include file="Common:left" />
+
+        <div class="col-lg-10">
+            <form action="{:U(GROUP_NAME . '/Category/sortCate')}" method="post">
+                <div class ="row" style="font-size:20px;"> 
+                <!--列-->
+                    <div class="col-lg-2">ID</div>
+                    <div class="col-lg-3">属性名称</div>
+                    <div class="col-lg-2">标题颜色</div>
+                    <div class="col-lg-3">操作</div>
+                </div>
+                <foreach name = 'attr' item = 'v'>
+                    <div class = "row">
+                        <div class="col-lg-2">{$v.id}</div>
+                        <div class="col-lg-3">{$v.name}</div>
+                        <div class="col-lg-2"><div style ='width:50px;height:20px;background:{$v.color};'></div></div>
+                        <div class="col-lg-3">[<a href="">修改</a>][<a href="">删除</a>]</div> 
+                    </div>
+                </foreach>
+                <div class="row">
+
+                    <button type="submit" class="btn btn-primary" style="width:80px;">提交</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
