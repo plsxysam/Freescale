@@ -1,8 +1,11 @@
+//新建fr_user分类表
+mysql> create table fr_user (id int unsigned not null primary key auto_increment, username char(20) not null default '' unique,password char(32) not null default '', logintime int(10) unsigned not null default 0,loginip char(20) not null default '');
+
 //新建hd_cate分类表
-mysql> create table hd_cate (id int unsigned not null primary key auto_increment, name char(15) not null default ',pid int unsigned not null default 0, sort smallint(6) not null default 100);
+mysql> create table fr_cate (id int unsigned not null primary key auto_increment, name char(15) not null default '',pid int unsigned not null default 0, sort smallint(6) not null default 100);
 
 //对cate添加
-mysql> alter table hd_cate add index pid(pid);
+mysql> alter table fr_cate add index pid(pid);
 
 //新建attr属性表
 mysql> create table hd_attr(id int unsigned not null primary key auto_increment, name char(10) not null default '', color char(10) not null default '');

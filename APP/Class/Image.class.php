@@ -109,7 +109,7 @@ Class Image {
 
 		//写入背景干扰字体
 		$len = strlen($seed) - 1;
-		for ($i = 0; $i < 20; $i++) {
+		for ($i = 0; $i < 5; $i++) {
 			$color = imagecolorallocate($verify, mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255));
 			imagestring($verify, 5, mt_rand(0, $width), mt_rand(0, $height), $seed[mt_rand(0, $len)], $color);
 		}
@@ -131,7 +131,7 @@ Class Image {
 		$_SESSION[$name] = $fn($code);
 
 		//干扰线
-		for ($i = 0, $h = $height / 2 - 2; $i < 5; $i++, $h++) {
+		for ($i = 0, $h = $height / 2 - 2; $i < 4; $i++, $h++) {
 			$color = imagecolorallocate($verify, mt_rand(0, 255), mt_rand(0, 255), mt_rand(0, 255));
 			$cx = mt_rand(-10, $width + 10);
 			$cy = mt_rand(-10, $height + 10);

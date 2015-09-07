@@ -6,9 +6,9 @@ return array(
 	//验证码长度
 	'VERIFY_LENGTH' => 4,
 	//验证码图片宽度(像素)
-	'VERIFY_WIDTH'=> 250,
+	'VERIFY_WIDTH'=> 95,
 	//验证码图片高度(像素)
-	'VERIFY_HEIGHT'=> 60,
+	'VERIFY_HEIGHT'=> 34,
 	//验证码背影颜色(16进制色值)
 	'VERIFY_BGCOLOR'=> '#F3FBFE',
 	//验证码种子
@@ -16,7 +16,7 @@ return array(
 	//验证码字体文件
 	'VERIFY_FONTFILE'=> './Data/font.ttf',
 	//验证码字体大小
-	'VERIFY_SIZE'=> 30,
+	'VERIFY_SIZE'=> 24,
 	//验证码字体颜色(16进制色值)
 	'VERIFY_COLOR'=> '#444444',
 	//SESSION识别名称
