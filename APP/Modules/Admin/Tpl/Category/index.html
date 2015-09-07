@@ -24,14 +24,6 @@
 </head>
 <body>
     <style type="text/css">
-        .col-lg-2 .row{height:55px;
-        background:#D9E0E0;
-        border-right: 1px solid #cccccc;
-        color: #ffffff;
-        text-align: center;
-        line-height: 55px;
-        border-bottom: 1px solid #cccccc;
-        }
         .container .row{
             height: 55px;
             background-color: #fff;
@@ -40,30 +32,42 @@
 
     <include file="Common:nav" />
 
- <div class="container">
+    <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
+      <div class="container" style="color:#fff;">
+        <h1>Welcome to freescale</h1>
+              <p>...</p>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      </div>
+    </div>
 
-    <form action="{:U(GROUP_NAME . '/Category/sortCate')}" method="post">
-        <div class ="row" style="font-size:20px;"> 
-        <!--列-->
-            <div class="col-lg-2">ID</div>
-            <div class="col-lg-3">名称</div>
-            <div class="col-lg-2">级别</div>
-            <div class="col-lg-3">排序</div>
-            <div class="col-lg-2">操作</div>
-        </div>
-        <foreach name = 'cate' item = 'v'>
-            <div class = "row">
-                <div class="col-lg-2">{$v.id}</div>
-                <div class="col-lg-2">{$v.html}{$v.name}</div>
-                <div class="col-lg-3">{$v.level}</div>
-                <div class="col-lg-2"><input type="text" name='{$v.id}' value='{$v.sort}'></div>
-                <div class="col-lg-3">[<a href="{:U(GROUP_NAME . '/Category/addCate', array('pid' => $v['id']))}">添加子分类</a>][<a href="">修改</a>][<a href="">删除</a>]</div> 
-            </div>
-        </foreach>
-        <div class="row">
+     <div class="container">
+        <include file="Common:left" />
 
-            <button type="submit" class="btn btn-primary" style="width:80px;">提交</button>
+        <div class="col-lg-10 right">
+            <form action="{:U(GROUP_NAME . '/Category/sortCate')}" method="post">
+                <div class ="row" style="font-size:20px;"> 
+                <!--列-->
+                    <div class="col-lg-2">ID</div>
+                    <div class="col-lg-3">名称</div>
+                    <div class="col-lg-2">级别</div>
+                    <div class="col-lg-3">排序</div>
+                    <div class="col-lg-2">操作</div>
+                </div>
+                <foreach name = 'cate' item = 'v'>
+                    <div class = "row">
+                        <div class="col-lg-2">{$v.id}</div>
+                        <div class="col-lg-2">{$v.html}{$v.name}</div>
+                        <div class="col-lg-3">{$v.level}</div>
+                        <div class="col-lg-2"><input type="text" name='{$v.id}' value='{$v.sort}'></div>
+                        <div class="col-lg-3">[<a href="{:U(GROUP_NAME . '/Category/addCate', array('pid' => $v['id']))}">添加子分类</a>][<a href="">修改</a>][<a href="">删除</a>]</div> 
+                    </div>
+                </foreach>
+                <div class="row">
+
+                    <button type="submit" class="btn btn-primary" style="width:80px;">刷新</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </body>
 </html>

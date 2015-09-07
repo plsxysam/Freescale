@@ -9,7 +9,6 @@
         body{
             padding-top: 50px;padding-bottom: 40px;
             background-color:  #ccc;
-            /*background:url("__PUBLIC__/pic/125.jpg");*/
             /*定位背景图像*/
             background-position:center 0;
             background-repeat:no-repeat;
@@ -20,44 +19,45 @@
     </style>
 </head>
 <body>
-    <style type="text/css">
-        .col-lg-2 .row{height:55px;
-        background:#D9E0E0;
-        border-right: 1px solid #cccccc;
-        color: #ffffff;
-        text-align: center;
-        line-height: 55px;
-        border-bottom: 1px solid #cccccc;
-        }
-    </style>
     <include file="Common:nav" />
 
- <div class="container">
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 style="color:#000;">添加栏目分类</h2>
-        </div>
-    </div>    
-    <div class="row">
-            <form class="navbar-form " method="post" action="{:U(GROUP_NAME.'/Category/runAddCate')}">
-                <div class="row">
-                    <label class="col-lg-2 control-label">分类栏目名称：</label>
-                    <input type="text" class="form-control col-lg-8" name='name'>  
-                </div> 
-                <div class="row">
-                    <label class="col-lg-2 control-label">排序：</label>
-                    <input type="text" class="form-control col-lg-8" name='sort' value='100' >  
-                </div> 
-                <div class="row">
-                    <input type="hidden" name='pid' value ='{$pid}' />
-                    <button type="submit" class="btn btn-primary" style="width:80px;">提交</button>
-                </div>
-                
-            </form>
+    <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
+      <div class="container" style="color:#fff;">
+        <h1>Welcome to freescale</h1>
+              <p>...</p>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      </div>
     </div>
-</div>
 
+    <div class="container">
 
+        <include file="Common:left" />
+
+        <div class = "col-lg-10">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2 style="color:#000;">添加栏目分类</h2>
+                </div>
+            </div>    
+            <div class="row">
+                    <form class="navbar-form " method="post" action="{:U(GROUP_NAME.'/Category/runAddCate')}">
+                        <div class="row">
+                            <label class="col-lg-2 control-label">分类栏目名称：</label>
+                            <input type="text" class="form-control col-lg-8" name='name'>  
+                        </div> 
+                        <div class="row">
+                            <label class="col-lg-2 control-label">排序：</label>
+                            <input type="text" class="form-control col-lg-8" name='sort' value='100' >  
+                        </div> 
+                        <div class="row">
+                            <input type="hidden" name='pid' value ='{$pid}' />
+                            <button type="submit" class="btn btn-primary" style="width:80px;">提交</button>
+                        </div>
+                        
+                    </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
