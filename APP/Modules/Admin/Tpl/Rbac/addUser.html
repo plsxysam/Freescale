@@ -1,0 +1,160 @@
+<html>
+<head>
+	<title></title>
+    <include file="Common:bootstrap_jsjqcss" />
+
+	<style type="text/css">
+        body{
+            padding-top: 50px;
+            padding-bottom: 40px;
+            background-color:  #ccc;
+        }
+        /*.col-lg-4,.col-lg-2,.col-lg-8{height:55px;
+        background:#099;
+        border-right: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+        line-height: 55px;
+        }*/
+    </style>
+</head>
+<body>
+	<include file="Common:nav" />
+    <include file="Common:jumbotron" />
+
+    <div class="container">
+        <include file="Common:left" />
+        <div class="col-lg-10">
+        <include file="Common:top" />
+    		<div class = "row">
+                <section>
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="page-header">
+                            <h2>添加用户</h2>
+                        </div>
+                     </div>
+                <form id="defaultForm" method="post" class="form-horizontal" action="{:U('Admin/Rbac/addUserHandle')}">
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Username</label>
+                        <div class="col-lg-5">
+                            <input id = "username" type = "text" name = "username" class = "form-control" placeholder ="用户名" >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-lg-3 control-label">Password</label>
+                            <div class="col-lg-5">
+                                <input type ="password" name = "password" class = "form-control" placeholder="密码" >
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-lg-3 control-label">Retype Password</label>
+                            <div class="col-lg-5">
+                                <input type ="password" name = "confirmPassword" class = "form-control" placeholder="密码" >
+                            </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-lg-3 control-label">所属角色</label>
+                            <div class="col-lg-5" name="role_id[]">
+                                <foreach name='role' item='v'>
+
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" name="role_id[]" value="{$v['id']}" /> {$v.name}({$v.remark})
+                                        </label>
+                                    </div>
+
+                                </foreach>
+                            </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-lg-9 col-lg-offset-3">
+                            <button type="submit" class="btn btn-primary" name="signup" value="Sign up">添加</button>
+                            <button type="button" class="btn btn-info" id="validateBtn">Manual validate</button>
+                            <button type="button" class="btn btn-info" id="resetBtn">Reset form</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+</body>
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+    // Generate a simple captcha
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+    $('#captchaOperation').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+
+    $('#defaultForm').bootstrapValidator({
+//        live: 'disabled',
+        message: 'This value is not valid',
+        feedbackIcons: {
+            valid: 'glyphicon glyphicon-ok',
+            invalid: 'glyphicon glyphicon-remove',
+            validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+            username: {
+                message: 'The username is not valid',
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required and cannot be empty'
+                    },
+                    stringLength: {
+                        min: 1,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: 'The username can only consist of alphabetical, number, dot and underscore'
+                    }
+                }
+            },
+            password: {
+                validators: {
+                    notEmpty: {
+                        message: 'The password is required and cannot be empty'
+                    },
+                    identical: {
+                        field: 'confirmPassword',
+                        message: 'The password and its confirm are not the same'
+                    }
+                }
+            },
+            confirmPassword: {
+                validators: {
+                    notEmpty: {
+                        message: 'The confirm password is required and cannot be empty'
+                    },
+                    identical: {
+                        field: 'password',
+                        message: 'The password and its confirm are not the same'
+                    }
+                }
+            },
+            role_id[]: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please specify at least one language you can speak'
+                    }
+                }
+            }
+        }
+    });
+
+    // Validate the form manually
+    $('#validateBtn').click(function() {
+        $('#defaultForm').bootstrapValidator('validate');
+    });
+
+    $('#resetBtn').click(function() {
+        $('#defaultForm').data('bootstrapValidator').resetForm(true);
+    });
+});
+    </script>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title></title>
+	<include file="Common:bootstrap_jsjqcss" />
+
+	<style type="text/css">
+        body{
+            padding-top: 50px;
+            padding-bottom: 40px;
+            background-color:  #ccc;
+        }
+    </style>
+</head>
+<body>
+	<include file="Common:nav" />
+    <include file="Common:jumbotron" />
+
+    <div class="container">
+        <include file="Common:left" />
+        <div class="col-lg-10">
+        <include file="Common:top" />
+        	<table>
+        		<div class = "row">
+        			<div class="col-lg-8 col-lg-offset-2">
+                        <div class="page-header">
+                            <h2><a href="{:U('Admin/Rbac/addNode')}">添加应用</a></h2>
+                        </div>
+                    </div>
+        		</div>
+        		<foreach name='node' item='app'>
+        			<div class = "row">
+    	    			<div class="col-lg-4 col-lg-offset-2">{$app.title}[<a href="{:U('Admin/Rbac/addNode', array('pid' => $app["id"], 'level' => 2))}">添加控制器</a>][<a href="">修改</a>]
+                                [<a href="">删除</a>]</div>
+    	    		</div>
+                    <foreach name='app.child' item='action'>
+                        <div class = "row">
+                            <div class="col-lg-4 col-lg-offset-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$action.title}[<a href="{:U('Admin/Rbac/addNode', array('pid' => $action["id"], 'level' => 3))}">添加方法</a>][<a href="">修改</a>]
+                                [<a href="">删除</a>]</div>
+                        </div>
+                        <foreach name='action.child' item='method'>
+                        <div class = "row">
+                            <div class="col-lg-4 col-lg-offset-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$method.title}
+                                [<a href="">修改</a>]
+                                [<a href="">删除</a>]</div>
+                        </div>
+                    </foreach>
+                    </foreach>
+                    
+        		</foreach>
+        		<div class = "row">
+        			<div class="col-lg-4 col-lg-offset-4">{$page}</div>
+        		</div>
+        	</table>
+        </div>
+    </div>
+
+</body>
+</html>

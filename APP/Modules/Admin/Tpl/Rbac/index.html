@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>index</title>
+    <include file="Common:bootstrap_jsjqcss" />
+
+</head>
+<body>
+<style type="text/css">
+        body{
+            padding-top: 50px;
+            padding-bottom: 40px;
+            background-color:  #ccc;
+        }
+        .col-lg-4,.col-lg-2,.col-lg-8{height:55px;
+        background:#099;
+        border-right: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+        line-height: 55px;
+        }
+    </style>
+    <include file="Common:nav" />
+    <include file="Common:jumbotron" />
+    <!-- <h2>heheda</h2> -->
+ <div class="container">
+    <include file="Common:left" />
+    <!--行-->
+    <div class="col-lg-10">
+        <include file="Common:top" />
+        <div class ="row"> 
+        <!--列-->
+            <div class="col-lg-2">ID</div>
+            <div class="col-lg-2">username</div>
+            <div class="col-lg-2">上一次登录时间</div>
+            <div class="col-lg-2">上一次登录IP</div>
+            <div class="col-lg-2">用户所属别组</div>
+            <div class="col-lg-2">操作</div>
+        </div>
+        <foreach name='user' item='v'>
+            <div class ="row"> 
+            <!--列-->
+                <div class="col-lg-2">{$v.id}</div>
+                <div class="col-lg-2">{$v.username}</div>
+                <div class="col-lg-2">{$v.logintime|date='y-m-d H:i',###}</div>
+                <div class="col-lg-2">{$v.loginip}</div>
+                <div class="col-lg-2">{}</div>
+                <div class="col-lg-2">删除</div>
+            </div>
+        </foreach>
+    </div>
+
+
+</body>
+</html>

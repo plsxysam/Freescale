@@ -1,0 +1,81 @@
+<html>
+<head>
+	<title></title>
+	<include file="Common:bootstrap_jsjqcss" />
+
+	<style type="text/css">
+        body{
+            padding-top: 50px;
+            padding-bottom: 40px;
+            background-color:  #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function () {
+            
+            $('input[level=1]').click(function(){
+                var inputs = $(this).parents('.ll').find('input');
+                $(this).attr('checked') ? inputs.attr('checked', 'checked') : inputs.removeAttr('checked');
+            });
+
+            $('input[level=2]').click(function(){
+                var inputs = $(this).parents('.ll2').find('input');
+                $(this).attr('checked') ? inputs.attr('checked', 'checked') : inputs.removeAttr('checked');
+            });
+
+        });
+    </script>
+</head>
+<body>
+	<include file="Common:nav" />
+    <include file="Common:jumbotron" />
+
+    <div class="container">
+        <include file="Common:left" />
+        <div class="col-lg-10">
+            <include file="Common:top" />
+        	<table>
+        		<div class = "row">
+        			<div class="col-lg-8 col-lg-offset-2">
+                        <div class="page-header">
+                            <h2><a href="{:U('Admin/Rbac/role')}">返回</a></h2>
+                        </div>
+                    </div>
+        		</div>
+                <form method="post" class="form-horizontal" action="{:U('Admin/Rbac/setAccess')} ">
+            		<foreach name='node' item='app'>
+                        <div class = "ll">
+                			<div class = "row">
+            	    			<div class="col-lg-4 col-lg-offset-2">{$app.title}<input type="checkbox" name='access[]' level='1' value='{$app.id}_1' <if condition= '$app["access"]'>checked='checked'</if> /></div>
+
+            	    		</div>
+                            <foreach name='app.child' item='action'>
+                                <div class = "ll2">
+                                <div class = "row">
+                                    <div class="col-lg-4 col-lg-offset-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$action.title}<input type="checkbox" name='access[]' level='2' value='{$action.id}_2'  <if condition= '$action["access"]'>checked='checked'</if> /></div>
+                                </div>
+                                <foreach name='action.child' item='method'>
+                                    <div class = "row">
+                                        <div class="col-lg-4 col-lg-offset-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$method.title}<input type="checkbox" name='access[]' level='3' value='{$method.id}_3'  <if condition= '$method["access"]'>checked='checked'</if> /></div>
+                                    </div>
+                                </foreach></div>
+                            </foreach>
+                        </div>
+            		</foreach>
+
+                        <div class="form-group">
+                            <div class="col-lg-9 col-lg-offset-3">
+                                <input type="hidden" name='rid' value='{$rid}' />
+                                <button type="submit" class="btn btn-info">提交</button>
+                            </div>
+                        </div>
+                </form>
+        		<div class = "row">
+        			<div class="col-lg-4 col-lg-offset-4">{$page}</div>
+        		</div>
+        	</table>
+        </div>
+    </div>
+
+</body>
+</html>

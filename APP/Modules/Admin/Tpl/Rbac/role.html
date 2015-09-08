@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>角色列表</title>
+    <include file="Common:bootstrap_jsjqcss" />
+
+	<style type="text/css">
+        body{
+            padding-top: 50px;
+            padding-bottom: 40px;
+            background-color:  #ccc;
+        }
+        .col-lg-4,.col-lg-2,.col-lg-8{height:55px;
+        background:#099;
+        border-right: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        color: #ffffff;
+        text-align: center;
+        line-height: 55px;
+        }
+    </style>
+</head>
+<body>
+	<include file="Common:nav" />
+    <include file="Common:jumbotron" />
+    <div class="container">
+        <include file="Common:left" />
+        <div class="col-lg-10">
+            <include file="Common:top" />
+        	<table>
+        		<div class = "row">
+        			<div class="col-lg-2">ID</div>
+        			<div class="col-lg-2">角色名称</div>
+        			<div class="col-lg-4">角色描述</div>
+        			<div class="col-lg-2">角色开启状态</div>
+        			<div class="col-lg-2">操作</div>
+        		</div>
+        		<foreach name='role' item='v'>
+        			<div class = "row">
+    	    			<div class="col-lg-2">{$v.id}</div>
+    	    			<div class="col-lg-2">{$v.name}</div>
+    	    			<div class="col-lg-4">{$v.remark}</div>
+    	    			<div class="col-lg-2">
+                            <if condition='$v["status"]'>开启<else/>关闭</if>
+                        </div>
+    	    			<div class="col-lg-2"><a href="{:U('Admin/Rbac/access', array('rid' => $v["id"]))}">配置权限</a></div>
+    	    		</div>
+        		</foreach>
+        		<div class = "row">
+        			<div class="col-lg-4 col-lg-offset-4">{$page}</div>
+        		</div>
+        	</table>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+<head>
+	<title></title>
+	<include file="Common:bootstrap_jsjqcss" />
+	<style type="text/css">
+        body{
+            padding-top: 50px;
+            padding-bottom: 40px;
+            background-color:  #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        $(function(){
+
+            $('input[level=1]').click(function(){
+                var inputs = $(this).parents('.app').find('input');
+                $(this).attr('checked') ? inputs.attr('checked', 'checked') : inputs.removeAttr('checked');
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+	<include file="Common:nav" />
+    <include file="Common:jumbotron" />
+
+    <div class="container">
+        <include file="Common:left" />
+        <div class="col-lg-10">
+            <include file="Common:top" />
+        	<table>
+        		<div class = "row">
+        			<div class="col-lg-8 col-lg-offset-2">
+                        <div class="page-header">
+                            <h2><a href="{:U('Admin/Rbac/role')}">·µ»Ø</a></h2>
+                        </div>
+                    </div>
+        		</div>
+        		<foreach name='node' item='app' >
+                    <div class = 'app'>
+        			<div class = "row">
+    	    			<div class="col-lg-4 col-lg-offset-2">{$app.title}
+                            <input type="checkbox" name='access[]' value='{$app.id}_1' level = '1' /></div>
+                        
+    	    		</div>
+                    <foreach name='app.child' item='action'>
+                        <div class = "row">
+                            <div class="col-lg-4 col-lg-offset-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$action.title}<input type="checkbox" name='access' value='{$action.id}_2' level='2' /></div>
+                            
+
+                        </div>
+                        <foreach name='action.child' item='method'>
+                        <div class = "row">
+                            <div class="col-lg-4 col-lg-offset-2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$method.title}<input type="checkbox" name='access' value='{$method.id}_3' level='3' /></div>
+                            
+
+                        </div>
+                        </foreach>
+                    </foreach>
+                    </div>
+        		</foreach>
+        		<div class = "row">
+        			<div class="col-lg-4 col-lg-offset-4">{$page}</div>
+        		</div>
+        	</table>
+        </div>
+    </div>
+
+</body>
+</html>
