@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <title>公告列表</title>
+    <include file="Common:bootstrap_jsjqcss" />
+
+    <style type="text/css">
+        body{
+            padding-top: 50px;padding-bottom: 40px;
+            background-color:  #ccc;
+            /*定位背景图像*/
+            background-position:center 0;
+            background-repeat:no-repeat;
+            background-attachment:fixed;
+            /*规定背景图像的尺寸,cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
+            background-size:cover;-webkit-background-size:cover;-o-background-size:cover;
+        }
+    </style>
+</head>
+<body>
+    <style type="text/css">
+        .container .row{
+            height: 55px;
+            background-color: #fff;
+        }
+    </style>
+    <include file="Common:nav" />
+    <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
+      <div class="container" style="color:#fff;">
+        <h1>Welcome to freescale</h1>
+              <p>...</p>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+      </div>
+    </div>
+ <div class="container">
+    <include file="Common:left" />
+
+    <div class = "col-lg-10">
+            <if condition='ACTION_NAME eq "index"'>
+                    <div class="row"><h1>公告列表</h1></div>
+                <else/>
+                    <div class="row"><h1>回收站</h1></div>
+                </if>
+            
+            <div class ="row" style="font-size:20px;height:40px;">
+                <div class="col-lg-1"><h4>ID</h4></div>
+                <div class="col-lg-3"><h4>标题</h4></div>
+                <div class="col-lg-4"><h4>内容</h4></div>
+                <div class="col-lg-2"><h4>发布时间</h4></div>
+                <div class="col-lg-2"><h4>操作</h4></div>
+            </div>
+            <foreach name='notice' item='v'>
+                <div class ="row" style="height:40px;">
+                    <div class="col-lg-1">{$v.id}</div>
+                    <div class="col-lg-3">{$v.title}<foreach name='v.attr' item='i'>[<a style="color:{$i.color};">{$i.name}]</a></foreach></div>
+                    <div class="col-lg-4">{$v.content}</div>
+                    <div class="col-lg-2">{$v.time|date='y-m-d H:i',###}</div>
+
+                    <if condition='ACTION_NAME eq "index"'>
+                        <div class="col-lg-2">[<a href="">修改</a>][<a href="{:U(GROUP_NAME . '/Notice/toTrach', array('id' => $v[id], 'type' => 1))}">删除</a>]</div>
+                    <else/>
+                        <div class="col-lg-2">[<a href="{:U(GROUP_NAME . '/Notice/toTrach', array('id' => $v[id], 'type' => 0))}">还原</a>][<a href="{:U(GROUP_NAME . '/Notice/delete', array('id' => $v[id]))}">彻底删除</a>]</div>
+                    </if>
+                    
+                </div>
+            </foreach>
+
+       
+
+    </div>
+</body>
+</html>
