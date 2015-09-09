@@ -1,0 +1,89 @@
+    <style type="text/css">
+        .nav li a{
+            outline:none;
+        }
+        @media (min-width: 768px) {
+          .signin{
+            width: 400px !important;
+          }
+        }
+    </style>
+    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle " data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class = "navbar-brand" style="padding:0px 0px;"><img alt="Brand" src="__PUBLIC__/pic/logo.jpg" style="width:123px;"></a>
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse" >
+            <div class = "navbar-left">
+                <ul class="nav navbar-nav ">
+                    <li><a href="{:U('../')}">首页</a> </li>
+                    <li><a href="#" style="outline:none;">实验室风采</a></li>
+                    <li><a href="#">比赛信息</a></li>
+                    <li><a href="#">技术报告</a></li>
+                    <li><a href="#">日志</a></li>
+                    <li><a href="#">公告</a> </li>
+                    <li><a href="#">下载</a> </li>
+                    <li><a href="#">help</a> </li>
+                </ul>
+            </div>
+
+            <if condition='isset($_SESSION["uid"])'>
+                <div class = "nav navbar-right collapse navbar-collapse">
+                    <ul class="nav navbar-nav ">
+                        <li><a href="">{$_SESSION['username']}</a></li>
+                        <li><a href="">个人中心</a></li>
+                        <li><a href="">实验室</a></li>
+                        <li><a href="{:U(GROUP_NAME . '/Index/logout')}">退出</a></li>
+                    </ul>
+                    <!-- <a class="btn btn-success navbar-btn" href="{:U(GROUP_NAME . '/Index/logout')}">退出</a> -->
+                </div>                      
+            <else/>
+                <div class = "navbar-right">
+                  <form class="navbar-form navbar-right" role="form">
+                    <a class="btn btn-success" data-toggle="modal" data-target="#myModal">Sign in</a>
+                    <a class="btn btn-success" href="#">Register</a>
+                  </form>
+                </div>
+            </if>
+            
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+   
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" style="top:20%;">
+      <div class="modal-dialog signin">
+        <div class="modal-content" aria-hidden="true">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h1 class="text-center text-primary">登录</h1>
+            </div>
+            <div class="modal-body">
+                <div class = "row">
+                    <form action="{:U('Index/Login/login')}" method="post" class="form col-md-12 center-block">
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" name="username" placeholder="用户名">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control input-lg" name="password" placeholder="密码">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">立刻登录</button>
+                            <span><a href="#">找回密码</a></span>
+                            <span><a href="#" class="pull-right">注册</a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>

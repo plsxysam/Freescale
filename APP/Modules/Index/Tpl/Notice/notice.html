@@ -1,0 +1,137 @@
+<!DOCTYPE html> <html lang="en"> 
+<head>
+    <title>公告列表</title>
+    <include file="Common:bootstrap_jsjqcss" />
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="__PUBLIC__/assets/plugins/font-awesome/css/font-awesome.min.css">
+
+    <!-- CSS Page Style -->    
+    <link rel="stylesheet" href="__PUBLIC__/assets/css/pages/shortcode_timeline2.css">
+
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/timeline.css">
+</head>
+
+<body>
+    <include file="Common:nav" />
+    <div class="row" style="height:50px;"></div>
+    <include file="Common:jumbotron" />
+
+<div class="">
+
+    <!--=== Content Part ===-->
+    <div class="container content">     
+        <div class="row">
+            <!-- Begin Sidebar Menu -->
+            <div class="col-md-3">
+                <ul class="list-group sidebar-nav-v1" id="sidebar-nav">
+                    <!-- Typography -->
+                    <li class="list-group-item list-toggle">                   
+                        <a data-toggle="collapse" data-parent="#sidebar-nav" href="shortcode_timeline2.html#collapse-typography">2015年</a>
+                        <ul id="collapse-typography" class="collapse">
+                            <li><a href=""><i class="fa fa-sort-alpha-asc"></i> 12月</a></li>
+                            <li>
+                                <span class="badge badge-u">New</span>
+                                <a href=""><i class="fa fa-magic"></i>11月</a>
+                            </li>
+                            <li>
+                                <span class="badge badge-u">New</span>                            
+                                <a href=""><i class="fa fa-ellipsis-h"></i>10月</a>
+                            </li>
+                            <li><a href=""><i class="fa fa-quote-left"></i>9月</a></li>
+                            <li>
+                                <span class="badge badge-u">New</span>                            
+                                <a href=""><i class="fa fa-asterisk"></i>8月</a>
+                            </li>
+                            <li><a href=""><i class="fa fa-comments"></i>7月</a></li>                            
+                            <li><a href=""><i class="fa fa-tasks"></i>6月</a></li>
+                            <li><a href=""><i class="fa fa-align-justify"></i>5月</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Typography -->
+
+                    <!-- Buttons UI -->
+                    <li class="list-group-item list-toggle">
+                        <a data-toggle="collapse" data-parent="#sidebar-nav" href="shortcode_timeline2.html#collapse-buttons">2014年</a>
+                        <ul id="collapse-buttons" class="collapse">
+                            <li><a href=""><i class="fa fa-flask"></i>12月</a></li>
+                            <li>
+                                <span class="badge badge-u">New</span>                            
+                                <a href=""><i class="fa fa-html5"></i>11月</a>
+                            </li>
+                            <li>
+                                <span class="badge badge-u">New</span>                            
+                                <a href=""><i class="fa fa-bolt"></i>10月</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- End Buttons UI -->
+
+                    <!-- Icons -->
+                    <li class="list-group-item list-toggle">                   
+                        <a data-toggle="collapse" data-parent="#sidebar-nav" href="shortcode_timeline2.html#collapse-icons">2013年</a>
+                        <ul id="collapse-icons" class="collapse">
+                            <li>
+                                <span class="badge badge-u">New</span>                            
+                                <a href=""><i >>></i>5月</a>
+                            </li>
+                            <li><a href=""><i class="fa fa-chevron-circle-right"></i>3月</a></li>
+                            <li>
+                                <span class="badge badge-u">New</span>                            
+                                <a href=""><i class="fa fa-chevron-circle-right"></i> 2月</a>
+                            </li>
+                            <li><a href=""><i class="fa fa-chevron-circle-right"></i>1月</a></li>
+                            <li><a href=""><i class="fa fa-chevron-circle-right"></i>...</a></li>
+                        </ul>
+                    </li>
+                    <!-- End Icons -->
+
+                    <!-- Content Boxes -->
+                    <li class="list-group-item list-toggle">                   
+                        <a class="accordion-toggle" href="shortcode_timeline2.html#collapse-content-boxes" data-toggle="collapse">long long ago</a>
+                        <ul id="collapse-content-boxes" class="collapse">
+                            <li>
+                                <span class="badge badge-u">New</span>                            
+                                <a href="shortcode_box_general.html"><i class="fa fa-cog"></i>more</a>
+                            </li>
+                            <!-- <li><a href="shortcode_box_colored.html"><i class="fa fa-align-center"></i> Colored Boxes</a></li> -->
+                        </ul>
+                    </li>
+                    <!-- End Content Boxes -->
+
+                </ul>
+            </div>
+            <!-- End Sidebar Menu -->
+
+            <!-- Begin Content -->
+            <div class="col-md-9">
+                <ul class="timeline-v2">
+                    <foreach name='notice' item='v'>
+                        <li>
+                            <time class="cbp_tmtime" datetime=""><span>{$v['time']|date='d-m-y', ###}</span> <span>{$v['time']|date='H:i:s', ###}</span></time>
+                            <i class="cbp_tmicon rounded-x hidden-xs"></i>
+                            <div class="cbp_tmlabel">
+                                <h2 style="color:#555;margin-top: 5px;text-shadow: none;font-weight: normal;font-family: "Open Sans",Arial,sans-serif;">{$v['title']}</h2>
+                                <div class="row">
+                                    <div class="col-md-12 ">    
+                                        {$v['content']}
+                                    </div>
+                                </div>        
+                            </div>
+                        </li>
+                    </foreach>
+
+                </ul>
+            </div>
+            <!-- End Content -->
+        </div>          
+    </div><!--/container-->     
+    <!--=== End Content Part ===-->
+
+    
+</div>
+
+
+
+</body>
+</html> 

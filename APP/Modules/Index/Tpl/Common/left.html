@@ -1,0 +1,121 @@
+    <style type="text/css">
+        .col-lg-2 .row{height:55px;
+        background:#F3F4F8;/*
+        border-right: 1px solid #FFF;*/
+        color: #ffffff;
+        text-align: center;
+        line-height: 55px;/*
+        border-bottom: 1px solid #FFF;*/
+        }
+        .list-group{margin-bottom: 5px;}
+    </style>
+    <div class = "left">
+        <div class="col-lg-2">
+            <!-- <ul class="nav nav-tabs">
+              ...
+              <li role="presentation" class="dropdown">
+                    
+                        <a href="#" class="list-group-item active dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            博文管理<span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{:U(GROUP_NAME . '/Blog/index')}">博文列表</a></li>
+                            <li><a href="{:U(GROUP_NAME . '/Blog/blog')}">添加博文</a></li>
+                            <li><a href="{:U(GROUP_NAME . '/Blog/trach')}">回收站</a></li>
+                        </ul>
+              </li>
+              ...
+            </ul> -->
+            
+
+
+
+            <!-- <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    博文管理
+                </a>
+                <a href="{:U(GROUP_NAME . '/Blog/index')}" class="list-group-item">博文列表</a>
+                <a href="{:U(GROUP_NAME . '/Blog/blog')}" class="list-group-item">添加博文</a>
+                <a href="{:U(GROUP_NAME . '/Blog/trach')}" class="list-group-item">回收站</a>
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    属性管理
+                </a>
+                <a href="{:U(GROUP_NAME . '/Attribute/index')}" class="list-group-item">属性列表</a>
+                <a href="{:U(GROUP_NAME . '/Attribute/addAttr')}" class="list-group-item">添加属性</a>
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    分类管理
+                </a>
+                <a href="{:U(GROUP_NAME . '/Category/index')}" class="list-group-item">分类列表</a>
+                <a href="{:U(GROUP_NAME . '/Category/addCate')}" class="list-group-item">添加分类</a>
+            </div>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    系统设置
+                </a>
+                <a href="{:U(GROUP_NAME . '/System/verify')}" class="list-group-item">验证码设置</a>
+            </div>
+ -->
+
+
+    <!-- <div class="tabbable"> --> <!-- Only required for left/right tabs -->
+      <!-- <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+        <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+      </ul>
+
+      <div class="tab-content">
+
+        <div class="tab-pane active" id="tab1">
+          <p>I'm in Section 1.</p>
+        </div>
+        <div class="tab-pane" id="tab2">
+          <p>Howdy, I'm in Section 2.</p>
+        </div>
+
+      </div>
+    </div>
+            <div class ="tabbable tabs-left">
+                <ul class ="nav nav-tabs">
+                    <li class="active"><a href="#tab1" data-toggle="tab">Section 1</a></li>
+                    <li><a href="#tab2" data-toggle="tab">Section 2</a></li>
+                </ul>
+                <div class ="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                      <p>I'm in Section 1.</p>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                      <p>Howdy, I'm in Section 2.</p>
+                    </div>
+                </div>
+            </div>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                  123
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">More options</a>
+                    <ul class="dropdown-menu">
+                      ...
+                    </ul>
+                  </li>
+                </ul> -->
+
+            <div class ="row"><b style="color:#000;">公告管理</b></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/Notice/index')}">公告列表</a></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/Notice/notice')}">发布公告</a></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/Notice/trach')}">回收站</a></div>
+
+            <div class ="row"><a href=""><b style="color:#000;">属性管理</b></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/Attribute/index')}">属性列表</a></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/Attribute/addAttr')}">添加属性</a></div>
+
+            <div class ="row"><b style="color:#000;">分类管理</b></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/Category/index')}">分类列表</a></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/Category/addCate')}">添加分类</a></div>
+
+            <div class ="row"><b style="color:#000;">系统设置</b></div>
+            <div class ="row"><a href="{:U(GROUP_NAME . '/System/verify')}">验证码设置</a></div>
+        </div>
+    </div>
