@@ -39,7 +39,7 @@
                                     <li>By {$v.author}</li>
                                     <li>Posted {$v.time|date="F d, Y", ###}</li>
                                 </ul>
-                                <h2 class="title"><a href="{:U('' . $v.id)}">{$v.title}</a></h2>
+                                <h2 class="title"><a href="{:U('Index/Competition/competition/',array('id'=>$v['id']))}">{$v.title}</a></h2>
                                 <p>{$v.summary}</p>
                                 <ul class="post-shares">
                                     <li>

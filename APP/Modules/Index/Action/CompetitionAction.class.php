@@ -8,5 +8,13 @@ Class CompetitionAction extends Action {
 		$this->competition = M('competition')->order('id DESC')->where($where)->field($field)->select();
 		$this->display();
 	}
+
+	Public function competition(){
+		$id = I('id');
+		$field = array( 'title', 'author', 'content', 'time');
+		$where = array('del' => 0,'id' => $id);
+		$this->msg = M('competition')->order('id DESC')->where($where)->field($field)->select();
+		$this->display();
+	}
 }
  ?>
