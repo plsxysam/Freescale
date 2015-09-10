@@ -3,6 +3,8 @@
     <title>比赛信息</title>
     <include file="Common:bootstrap_jsjqcss" />
     <script type="text/javascript" src="__PUBLIC__/js/back-to-top.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/competition.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/back-to-top.css">
     <link rel="stylesheet" href="__PUBLIC__/css/style.css">
     <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css"> 
 
@@ -37,7 +39,7 @@
                                     <li>By {$v.author}</li>
                                     <li>Posted {$v.time|date="F d, Y", ###}</li>
                                 </ul>
-                                <h2><a href="blog_medium_right_sidebar1.html#">{$v.title}</a></h2>
+                                <h2 class="title"><a href="{:U('' . $v.id)}">{$v.title}</a></h2>
                                 <p>{$v.summary}</p>
                                 <ul class="post-shares">
                                     <li>

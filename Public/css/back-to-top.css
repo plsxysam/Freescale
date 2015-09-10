@@ -1,0 +1,26 @@
+#topcontrol:hover {
+    color: #FFF;
+    background: #72C02C none repeat scroll 0% 0%;
+    transition: all 0.3s ease-in-out 0s;
+}
+#topcontrol {
+    color: #FFF;
+    z-index: 99;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    background: #222 none repeat scroll 0% 0%;
+    position: relative;
+    right: 14px !important;
+    bottom: 11px !important;
+    border-radius: 3px !important;
+   
+}
+#topcontrol::after {
+    top: -2px;
+    left: 8.5px;
+    content: "";
+    position: absolute;
+    text-align: center;
+    font-family: FontAwesome;
+}
