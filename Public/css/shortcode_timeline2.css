@@ -11,6 +11,7 @@
 	position: relative;
 }
 
+/*时间轴的线*/
 .timeline-v2:before {
 	top: 0;
 	bottom: 0;
@@ -54,7 +55,9 @@
 .timeline-v2 > li .cbp_tmlabel {
 	color: #fff;
 	padding: 10px 20px 20px;
-	background: #f3f3f3;
+	background: #fefefe;
+	/*background-color: #FFFFFF;*/
+	border: 1px solid #D4D4D4;
 	line-height: 1.4;
 	clear: both;
 	position: relative;
@@ -102,8 +105,12 @@
 	position: absolute;
 	pointer-events: none;
 	border-right-color: #f3f3f3;
+
 	border-width: 10px;
 	top: 18px;
+
+
+	
 }
 
 /* The icons */
@@ -153,6 +160,7 @@
 		top: -20px;
 		right: auto;
 		border-bottom-color: #f3f3f3;
+
 		border-right-color: transparent;
 	}
 

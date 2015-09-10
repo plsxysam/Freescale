@@ -1,0 +1,97 @@
+<!DOCTYPE html><html lang="en"> 
+<head>
+    <title>比赛信息</title>
+    <include file="Common:bootstrap_jsjqcss" />
+    <script type="text/javascript" src="__PUBLIC__/js/back-to-top.js"></script>
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css"> 
+
+</head>	
+
+<body>
+    <include file="Common:nav" /> 
+    <div class="container">
+        <div class="row" style="height:50px;"></div>
+        <div class="row" style="padding-top:14px;">
+            <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
+                <h1 style="color:#fff;">Welcome</h1>
+                <h2>freescale</h2>
+                <p><br><br></p>
+            
+            </div>
+    </div>
+<div class="wrapper">
+    <div class="container content-md">
+        <div class="row">
+            <!-- Blog All Posts -->
+            <div class="col-md-12">
+                
+                <foreach name="competition" item="v">
+                    <div class="row margin-bottom-20">
+                        <div class="col-sm-5 sm-margin-bottom-20">
+                            <img class="img-responsive" src="__PUBLIC__/assets/img/main/img12.jpg" alt="">
+                        </div>
+                        <div class="col-sm-7 news-v3">
+                            <div class="news-v3-in-sm no-padding">
+                                <ul class="list-inline posted-info">
+                                    <li>By {$v.author}</li>
+                                    <li>Posted {$v.time|date="F d, Y", ###}</li>
+                                </ul>
+                                <h2><a href="blog_medium_right_sidebar1.html#">{$v.title}</a></h2>
+                                <p>{$v.summary}</p>
+                                <ul class="post-shares">
+                                    <li>
+                                        <a href="" >more</a>
+                                    </li>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix margin-bottom-20"><hr></div>
+                </foreach>
+
+                
+                <div class="row no-margin-bottomtom-20">
+                    <div class="col-sm-5 sm-margin-bottom-20">
+                        <div class="responsive-video">
+                            <iframe src="http://player.vimeo.com/video/93094247?title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 news-v3">
+                        <div class="news-v3-in-sm no-padding">
+                            <ul class="list-inline posted-info">
+                                <li>By Alexander Jenni</li>
+                                <li>In <a href="blog_medium_right_sidebar1.html#">Design</a></li>
+                                <li>Posted January 24, 2015</li>
+                            </ul>
+                            <h2><a href="blog_medium_right_sidebar1.html#">Awesome post “VIDEO”</a></h2>
+                            <p>Nullam elementum tincidunt massa, a pulvinar leo ultricies ut. Ut fringilla lectus tellus, imperdiet molestie est volutpat at. Sed viverra cursus nibh, sed consectetur ipsum sollicitudin non metus inmi efficitur...</p>
+                            <ul class="post-shares">
+                                <li>
+                                    <a href="blog_medium_right_sidebar1.html#">
+                                        <i class="rounded-x icon-speech"></i>
+                                        <span>5</span>
+                                    </a>
+                                </li>
+                                <li><a href="blog_medium_right_sidebar1.html#"><i class="rounded-x icon-share"></i></a></li>
+                                <li><a href="blog_medium_right_sidebar1.html#"><i class="rounded-x icon-heart"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="clearfix margin-bottom-20"><hr></div>
+
+
+                <ul class="pager pager-v3 pager-sm no-margin-bottom">
+                    <li class="previous"><a href="blog_medium_right_sidebar1.html#">&larr; Older</a></li>
+                    <li class="page-amount">1 of 7</li>
+                    <li class="next"><a href="blog_medium_right_sidebar1.html#">Newer &rarr;</a></li>
+                </ul>
+            </div>
+          
+        </div>
+    </div>            
+</div>
+
+</body>
+</html>

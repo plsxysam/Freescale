@@ -4,10 +4,10 @@
     <include file="Common:bootstrap_jsjqcss" />
 
     <!-- CSS Implementing Plugins -->
-    <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/assets/plugins/font-awesome/css/font-awesome.min.css">
 
     <!-- CSS Page Style -->    
-    <link rel="stylesheet" href="__PUBLIC__/css/shortcode_timeline2.css">
+    <link rel="stylesheet" href="__PUBLIC__/assets/css/pages/shortcode_timeline2.css">
 
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/timeline.css">
 </head>
@@ -15,18 +15,7 @@
 <body>
     <include file="Common:nav" />
     <div class="row" style="height:50px;"></div>
-    <!-- <include file="Common:jumbotron" /> -->
-    <div class="container">
-    <!-- 使用 bootstrap的组件巨幕 -->
-    <div class="row" style="padding-top:14px;">
-        <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
-            <h1 style="color:#fff;">Welcome</h1>
-            <h2>freescale</h2>
-            <p><br><br></p>
-        
-        </div>
-    </div> 
-</div>
+    <include file="Common:jumbotron" />
 
 <div class="">
 
@@ -119,10 +108,10 @@
                 <ul class="timeline-v2">
                     <foreach name='notice' item='v'>
                         <li>
-                            <time class="cbp_tmtime" datetime=""><span>{$v['time']|date='d-m-y', ###}</span> <span>{$v['time']|date='F', ###}</span></time>
+                            <time class="cbp_tmtime" datetime=""><span>{$v['time']|date='d-m-y', ###}</span> <span>{$v['time']|date='H:i:s', ###}</span></time>
                             <i class="cbp_tmicon rounded-x hidden-xs"></i>
                             <div class="cbp_tmlabel">
-                                <h2 style="color:#555;margin-top: 5px;text-shadow: none;font-weight: normal;font-family: 'Open Sans',Arial,sans-serif;">{$v['title']}</h2>
+                                <h2 style="color:#555;margin-top: 5px;text-shadow: none;font-weight: normal;font-family: "Open Sans",Arial,sans-serif;">{$v['title']}</h2>
                                 <div class="row">
                                     <div class="col-md-12 ">    
                                         {$v['content']}

@@ -119,10 +119,10 @@
                 <ul class="timeline-v2">
                     <foreach name='notice' item='v'>
                         <li>
-                            <time class="cbp_tmtime" datetime=""><span>{$v['time']|date='d-m-y', ###}</span> <span>{$v['time']|date='F', ###}</span></time>
+                            <time class="cbp_tmtime" datetime=""><span>{$v['time']|date='d-m-y', ###}</span> <span>{$v['time']|date='H:i:s', ###}</span></time>
                             <i class="cbp_tmicon rounded-x hidden-xs"></i>
                             <div class="cbp_tmlabel">
-                                <h2 style="color:#555;margin-top: 5px;text-shadow: none;font-weight: normal;font-family: 'Open Sans',Arial,sans-serif;">{$v['title']}</h2>
+                                <h2 style="color:#555;margin-top: 5px;text-shadow: none;font-weight: normal;font-family: "Open Sans",Arial,sans-serif;">{$v['title']}</h2>
                                 <div class="row">
                                     <div class="col-md-12 ">    
                                         {$v['content']}
