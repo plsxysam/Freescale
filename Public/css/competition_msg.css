@@ -1,0 +1,50 @@
+
+
+/*reset default style*/
+p,a,,em,dl,dt,dd,img,h2,h4{
+	margin: 0;
+	padding: 0;
+}
+body {
+	font: 12px/1.5 Arial,"Microsoft YaHei" ,sans-serif;
+	color: #333;
+	background: #efefef;
+}
+h2,h4{ font-weight: normal;font-family: arial,"Microsoft YaHei",sans-serif;}
+a {
+	color: #383838;
+	text-decoration: none;
+	outline: none;
+}
+a:active,
+a:visited {
+	text-decoration: none;
+	outline: none;
+}
+img {
+	border: 0;
+	outline: none;
+}
+/*====common style====*/
+.clearfix {
+	zoom: 1;
+}
+.clearfix:after,
+.container:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.container {
+	width: 1080px;
+	margin: 0 auto;
+}
+.inner {
+	background: #fff;
+	border: 1px solid #e5e5e5;
+}
+.mb30 {
+	margin-bottom: 30px;
+}

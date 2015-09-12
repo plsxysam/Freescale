@@ -1,0 +1,37 @@
+/*大赛通知*/
+.mnotice .inner {
+	padding: 40px 30px;
+}
+.mnotice-th {
+	margin-bottom: 20px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+.mnotice-th em {
+	font-style: normal;
+	color: #008000;
+}
+.mnotice-entry {
+	margin-bottom: 15px;
+}
+.mnotice-entry dt {
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: bold;
+	color: #000;
+}
+.mnotice-entry dd {
+	line-height: 26px;
+	font-size: 14px;
+}
+.mnotice-entry dd p {
+	text-indent: 2em;
+}
+.mnotice-entry dd .tit {
+	font-weight: bold;
+	color: #000;
+}
+.mnotice-entry dd p em {
+	font-style: normal;
+}

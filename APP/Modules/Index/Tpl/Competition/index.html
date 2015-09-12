@@ -12,15 +12,10 @@
 
 <body>
     <include file="Common:nav" /> 
-    <div class="container">
-        <div class="row" style="height:50px;"></div>
-        <div class="row" style="padding-top:14px;">
-            <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
-                <h1 style="color:#fff;">Welcome</h1>
-                <h2>freescale</h2>
-                <p><br><br></p>
-            
-            </div>
+    <div class="container" style="margin-top:50px;">
+        <div class="row" style="padding-top:14px;padding-left:20px;padding-right:20px;">
+            <include file="Common:carousel" />
+        </div> 
     </div>
 <div class="wrapper">
     <div class="container content-md">
@@ -31,7 +26,7 @@
                 <foreach name="competition" item="v">
                     <div class="row margin-bottom-20">
                         <div class="col-sm-5 sm-margin-bottom-20">
-                            <img class="img-responsive" src="__PUBLIC__/assets/img/main/img12.jpg" alt="">
+                            <img class="img-responsive" src="__PUBLIC__/pic/Competition/{$v.imgname}" alt="">
                         </div>
                         <div class="col-sm-7 news-v3">
                             <div class="news-v3-in-sm no-padding">
@@ -40,11 +35,11 @@
                                     <li>Posted {$v.time|date="F d, Y", ###}</li>
                                 </ul>
                                 <h2 class="title"><a href="{:U('Index/Competition/competition/',array('id'=>$v['id']))}">{$v.title}</a></h2>
-                                <p>{$v.summary}</p>
-                                <ul class="post-shares">
-                                    <li>
-                                        <a href="" >more</a>
-                                    </li>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$v.summary}</p>
+                                
+                                    <!-- 
+                                        <a href="{:U('Index/Competition/competition/',array('id'=>$v['id']))}" >more</a>
+                                     -->
                             </div>
                         </div>
                     </div>
