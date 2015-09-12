@@ -24,17 +24,18 @@ mysql> alter table fr_competition add author char(20) not null default ''  after
 //对competition表添加简要
 mysql> alter table fr_competition add summary varchar(255) not null default '' after author;
 
-//对competition表添加简要
+//对competition表添加图片名称
 mysql> alter table fr_competition add imgname varchar(255) not null default '' after author;
 
-//新建blog博文表
-mysql> create table hd_blog(id int unsigned not null primary key auto_increment, title varchar(30) not null default '', content text, time int(10) unsigned not null default 0, cid int unsigned not null, del tinyint(1) unsigned not null default 0);
+//新建个人blog博文表
+mysql> create table fr_blog(id int unsigned not null primary key auto_increment, author int unsigned not null, title varchar(64) not null default '', summary varchar(255) not null default '', content text, time int(10) unsigned not null default 0, cid int unsigned not null, del tinyint(1) unsigned not null default 0);
+
+//新建个人trace微迹表
+mysql> create table fr_trace(id int unsigned not null primary key auto_increment, author int unsigned not null, title varchar(64) not null default '', content text, time int(10) unsigned not null default 0, cid int unsigned not null, del tinyint(1) unsigned not null default 0);
 
 //新建attr属性对文章的表
 mysql> create table hd_blog_attr(bid int unsigned not null, aid int unsigned not null, index bid(bid) ,index aid(aid));
 
-//blog表添加点击次数属性
-mysql> alter table hd_blog add click smallint(6) unsigned not null default 0 after time;
 
 //blog表添加简要
 mysql> alter table hd_blog add summary varchar(255) not null default '' after content;

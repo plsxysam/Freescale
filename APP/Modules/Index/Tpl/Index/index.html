@@ -1,104 +1,46 @@
-<!DOCTYPE html >
-<html>
-<head>
-	<title>index</title>
+<!DOCTYPE html>
+<html ><head>
+<title>飞思卡尔实验室</title>
+<link href="__PUBLIC__/index/new2.css" rel="stylesheet" media="screen" type="text/css">
 
-	<include file="Common:bootstrap_jsjqcss" />
+<script src="__PUBLIC__/index/analytics.js" async=""></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-	<script type="text/javascript" src="__PUBLIC__/js/bootstrapValidator.js"></script>
-
-    <style type="text/css">
-        body{
-            padding-top: 50px;padding-bottom: 40px;
-            background-color:  #fff;
-            /*background:url("__PUBLIC__/pic/125.jpg");*/
-            /*定位背景图像*/
-            background-position:center 0;
-            background-repeat:no-repeat;
-            background-attachment:fixed;
-            /*规定背景图像的尺寸,cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
-            background-size:cover;-webkit-background-size:cover;-o-background-size:cover;
-        }
-    </style>
-</head>
-<body>
-
-    <include file="Common:nav" />
-    <!-- 使用 bootstrap的组件巨幕，让巨幕组件的宽度与浏览器宽度一致并且没有圆角 -->
-    <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
-      <div class="container" style="color:#fff;">
-        <h1>Welcome to freescale</h1>
-        <p>...</p>
-              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
-      </div>
-    </div>
+  ga('create', 'UA-22787990-1', 'auto');
+  ga('send', 'pageview');
+</script>
 <style type="text/css">
-        .col-lg-3{
-            background-color: #fff;
-            height: 200px;
-            border-bottom: 1px solid #cccccc;
-        border-right: 1px solid #cccccc;
-        }
-        .col-lg-4,.col-lg-2,.col-lg-8{height:55px;
-        background:#099;
-        border-right: 1px solid #cccccc;
-        border-bottom: 1px solid #cccccc;
-        color: #ffffff;
-        text-align: center;
-        line-height: 55px;
-        }
-    </style>
- <div class="container">
-    <!-- 使用 bootstrap的组件巨幕 -->
-    <!-- <div class="row" style="padding-top:14px;">
-        <div class="jumbotron" style="background:url('__PUBLIC__/pic/jumbotron.jpg');background-size:cover;">
-            <h1 style="color:#fff;">Welcome</h1>
-            <h2>freescale</h2>
-            <p><br><br></p>
-        
-        </div>
-    </div> --> 
-
-<div class="row" style="height:1024px;">
-
-    <include file="Common:left" />
-    <div class="col-lg-10">
-        <include file="Common:top" />
-    </div>
-
-
-    <!-- <div class="row">
-        <div class="col-lg-2" style="background-color: #F0F0F0;height:1024px;">left</div>
-        <div class="col-lg-10">
-            <div class="row">
-                <h2>title</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-                <div class="col-lg-3"></div>
-            </div>
-        </div>
-    </div>
-     -->
-    
-
+	#top_img {
+	background-image: url("__PUBLIC__/index/topBG.jpg");
+}
+</style>
+</head>
+<body style="">
+<div id="top">
+<div id="top_img">
+<main id="top_main">
+<div id="top_logo"><img src="__PUBLIC__/pic/logo1.png"></div>
+<div id="top_title"><a href="{:U('Index/Index/index2')}"><img id="top_title01" alt="琉璃神社" src="__PUBLIC__/index/FreescaleLaboratory4.png" ></a><hr class="top_hr_style01"><img id="top_title02" alt="琉璃神社" src="__PUBLIC__/index/toptitle02.png"></div>
+<ul id="top_navlist">
+<a class="top_nav" href="https://hacg.club/wordpress/"><li>NEWS</li></a>
+<a class="top_nav" href="https://hacg.club/wordpress/op.html"><li>MUSIC</li></a>
+<a class="top_nav" href="https://hacg.club/wordpress/sm.html"><li>ABOUT</li></a>
+</ul>
+</main>
+<footer id="top_footer">
+<span id="top_copyright">
+<hr class="top_hr_style02">
+琉璃神社是一个分享最新最酷的ACG同人作品资讯社团,在这里你能找到很多欢乐。
+<audio autoplay="autoplay"><source src="__PUBLIC__/index/onj001.mp3" type="audio/mpeg"></audio>
+<hr class="top_hr_style02">
+<a href="{:U('Index/index2')}">琉璃神社 </a>copyright © 2011-2015 HACG.ME All Rights Reserved.<a href="https://hacg.club/wordpress/sitemap.html">SITEMAP</a>
+</span>
+</footer>
 </div>
-     
-
 </div>
 
 
-
-</body>
-</html>
+</body></html>
