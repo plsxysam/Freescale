@@ -1,0 +1,53 @@
+<html><head>
+    <title>{$msg.title}</title>
+    <include file="Common:bootstrap_jsjqcss" />
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/competition.css">
+    <link rel="stylesheet" href="__PUBLIC__/assets/plugins/font-awesome/css/font-awesome.min.css">
+</head>
+<body style="">
+    <include file="Common:nav" />
+
+
+<div class="wrapper" >
+
+    <style type="text/css">
+        .wrapper{
+            padding-top: 50px;padding-bottom: 40px;
+            background-position:center 0!important;
+            background-repeat:no-repeat!important;
+            background-attachment:fixed!important;
+            background-size:cover!important;-webkit-background-size:cover;-o-background-size:cover;
+        }
+    </style>
+
+
+    <!--=== Profile ===-->
+
+    <div class="container content profile" style="margin-top:50px;">
+        <div class="row">
+            <include file="Common:pro_left" />
+            <!-- Profile Content -->            
+            <div class="col-md-9">
+                
+                <div class="" style="background-color:#ffffff;border: 1px solid #E5E5E5;padding:10px;">
+                    <h1 class="mnotice-th" style="text-align: center;font-size: 42px;margin-top:10px;font-weight: bold;">{$msg.title}</h1>
+                    <hr style="margin:0px;">
+                    <h4 style="float:right;">&nbsp;&nbsp;&nbsp;&nbsp;发布时间：{$msg.time|date="Y-m-d H:i",###}</h4>
+                    <br><hr>
+                    <p>{$msg.content}</p>
+                </div> 
+
+            </div>
+            <!-- End Profile Content -->            
+        </div>
+    </div><!--/container-->    
+    <!--=== End Profile ===-->
+</div><!--/wrapper-->
+
+
+
+
+<div style="margin: 0px;padding: 0px;height:10px;"></div>
+
+</body></html>

@@ -30,7 +30,7 @@
         		<foreach name='node' item='app'>
         			<div class = "row">
     	    			<div class="col-lg-4 col-lg-offset-2">{$app.title}[<a href="{:U('Admin/Rbac/addNode', array('pid' => $app["id"], 'level' => 2))}">添加控制器</a>][<a href="">修改</a>]
-                                [<a href="">删除</a>]</div>
+                                [<a href="{:U('Admin/Rbac/deleteNode', array('pid' => $app["id"], 'level' => 2))}">删除</a>]</div>
     	    		</div>
                     <foreach name='app.child' item='action'>
                         <div class = "row">

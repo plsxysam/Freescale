@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>个人主页</title>
+    <include file="Common:bootstrap_jsjqcss" />
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/competition.css">
+    <link rel="stylesheet" href="__PUBLIC__/assets/plugins/font-awesome/css/font-awesome.min.css">
+</head>	
+
+<body >
+    <include file="Common:nav" />
+<div class="wrapper" >
+
+    <style type="text/css">
+        .wrapper{
+            padding-top: 50px;padding-bottom: 40px;/*
+            background-color:  #fff !important;
+            font-family: 'microsoft yahei',Arial,sans-serif;
+            background:url("__PUBLIC__/pic/125.jpg") !important;*/
+            /*定位背景图像*/
+            background-position:center 0!important;
+            background-repeat:no-repeat!important;
+            background-attachment:fixed!important;
+            /*规定背景图像的尺寸,cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
+            background-size:cover!important;-webkit-background-size:cover;-o-background-size:cover;
+        }
+    </style>
+
+
+    <!--=== Profile ===-->
+
+    <div class="container content profile" style="margin-top:50px;">
+    	<div class="row">
+            <include file="Common:pro_left" />
+            <!-- Profile Content -->            
+            <div class="col-md-9">
+                <div class="profile-body">
+                    <!--Service Block v3-->
+                    <div class="row margin-bottom-10">
+                        <a href=""  class="btn btn-success " style="margin-left:30px;">关注：50</a>
+                        <a href="" class="btn btn-success ">原创：{$newcount}</a>
+                        <a href="" class="btn btn-success ">转载：10</a>
+                        <a HREF="" class="btn btn-success ">收藏：50</a>
+                        <a href="{:U('Index/Profile/addblog')}" class="btn btn-success " style="float:right;">发布博文</a>
+                    </div><!--/end row-->
+                    <!--End Service Block v3-->
+                    <hr>
+                   <foreach name="blog" item="v">
+                    <div class="row " >
+                        <div class="col-sm-10 news-v3 " style="margin-left:20px;">
+                            <div class="news-v3-in-sm no-padding" style="background-color:#fefefe;">
+                                <ul class="list-inline posted-info">
+                                    <li>By {$_SESSION['username']}</li>
+                                    <li>Posted {$v.time|date="F d, Y", ###}</li>
+                                </ul>
+                                <h2 class="title"><a href="{:U('Index/Profile/bloglog/',array('id'=>$v['id']))}">{$v.title}</a></h2>
+                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$v.summary}</p>
+                                
+                            </div>
+                        </div>
+                        <div class="col-sm-1 " >
+                            <!-- <div class="" style="background:url('__PUBLIC__/pic/logo2.png');background-size:cover!important;width:50px;height:50px;">123</div>
+                            <div class="" style="background:url('__PUBLIC__/pic/1.jpg');height:50px;">21</div>
+                            <div class="" style="background:url('__PUBLIC__/pic/1.jpg');height:50px;">32</div> -->
+                            <img src="__PUBLIC__/pic/logo2.png" style="height:50px;"> <!-- 修改 -->
+                            <img src="__PUBLIC__/pic/logo2.png" style="height:50px;"> <!--   -->
+                            <img src="__PUBLIC__/pic/logo2.png" style="height:50px;">
+                        </div>
+                    </div>
+                    <div class="clearfix "><hr></div>
+                </foreach>
+                    
+                </div>
+            </div>
+            <!-- End Profile Content -->            
+        </div>
+    </div><!--/container-->    
+    <!--=== End Profile ===-->
+
+</div><!--/wrapper-->
+          
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="__PUBLIC__/assets/plugins/back-to-top.js"></script>
+
+</body>
+</html>	    

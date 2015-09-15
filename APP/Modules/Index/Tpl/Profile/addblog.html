@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>发布博文</title>
+    <include file="Common:bootstrap_jsjqcss" />
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/competition">
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = '__ROOT__/Data/ueditor/';
+        window.onload = function(){
+        window.UEDITOR_CONFIG.initialFrameWidth = 1000; //编辑器宽
+        window.UEDITOR_CONFIG.initialFrameHeight = 400; //编辑器高
+        //window.UEDITOR_CONFIG.getActionUrl = "{:U(GROUP_NAME.'/Blog/upload')}"; //提交页面
+        // window.UEDITOR_CONFIG.imagePath = '__ROOT__/Uploads/';
+        
+
+        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+        UE.Editor.prototype.getActionUrl = function(action){
+            if(action == 'uploadimage') {
+                return "{:U(GROUP_NAME.'/Competition/upload')}";
+            }else{
+                return this._bkGetActionUrl(action);
+            }
+        }
+
+        UE.getEditor('content');
+        }
+
+    </script>
+    <script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.all.min.js"></script>
+</head>	
+
+<body >
+    <include file="Common:nav" />
+<div class="wrapper" >
+
+    <style type="text/css">
+        .wrapper{
+            padding-top: 50px;padding-bottom: 40px;/*
+            background-color:  #fff !important;
+            font-family: 'microsoft yahei',Arial,sans-serif;
+            background:url("__PUBLIC__/pic/125.jpg") !important;*/
+            /*定位背景图像*/
+            background-position:center 0!important;
+            background-repeat:no-repeat!important;
+            background-attachment:fixed!important;
+            /*规定背景图像的尺寸,cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
+            background-size:cover!important;-webkit-background-size:cover;-o-background-size:cover;
+        }
+    </style>
+
+
+    <!--=== Profile ===-->
+
+    <div class="container content profile" style="margin-top:50px;">
+    	<div class="row">
+            <include file="Common:pro_left" />
+            <!-- Profile Content -->            
+            <div class="col-md-9">
+                <div class="profile-body">
+                    
+  <form class="from navbar-form form-horizontal" method="post" action="{:U(GROUP_NAME.'/Profile/toAddBlog')}">
+    <fieldset>
+      <div id="legend" class="">
+        <legend class=""><h1>发布博文</h1></legend>
+      </div>
+    
+
+    <style type="text/css">
+        fieldset .control-group{margin-left: 10px;}
+    </style>
+
+    <div class="control-group">
+          <!-- Text input-->
+        <label class="control-label" for="input01"><h4>博文标题：</h4></label>
+        <div class="controls">
+            <select class="input-xlarge" name="cid" style="height:30px;">
+                <foreach name='cate' item='v'>
+                    <option value="{$v.id}">{$v.name}</option>
+                </foreach>
+            </select>
+            <input class="form-control" type="text" style="width:500px;" name="title">
+        </div>
+        <p></p>
+    </div>
+
+    <div class="control-group">
+        <div class="controls">
+            <!-- Inline Radios -->
+            <label class="control-label"><h5>是否公开:</h5></label>
+            <label class="radio inline">
+                <input checked="checked" value="0" name="bloglock" type="radio">
+            公开
+            </label>
+            <label class="radio inline">
+                <input value="1" name="bloglock" type="radio">
+                私密
+            </label>
+        </div>
+    </div>
+    <div class="control-group">
+          <!-- Multiple Checkboxes -->
+          <div class="controls">
+            <label class="control-label"><h5>自推类型：</h5></label>
+          <!-- Inline Checkboxes -->
+            <foreach name='attr' item='v'>
+                <label class=" control-label checkbox inline">
+                    <input type="checkbox" name='aid[]' value='{$v.id}' />&nbsp;{$v.name}&nbsp;&nbsp;&nbsp;&nbsp;
+                </label>
+            </foreach>
+
+    </div>
+
+        </div><div class="control-group">
+          <!-- Textarea -->
+          <label class="control-label"></label>
+          <div class="controls">
+            <div class="textarea">
+                  <textarea name = "content" id = "content"></textarea>
+            </div>
+          </div>
+        </div>
+
+    <div class="control-group">
+
+          <!-- Textarea -->
+          <label class="control-label">简要</label>
+          <div class="controls">
+            <div class="textarea">
+                  <textarea type="" name="summary" style="width:600px;height:100px;"> </textarea>
+            </div>
+          </div>
+        </div>
+                        <div class="row control-group">
+                            <button type="submit" class="btn btn-primary" style="width:80px;">提交</button>
+                        </div>
+    </fieldset>
+  </form>
+
+
+                        
+                        
+                    </form>
+
+
+                    
+                </div>
+            </div>
+            <!-- End Profile Content -->            
+        </div>
+    </div><!--/container-->    
+    <!--=== End Profile ===-->
+
+</div><!--/wrapper-->
+          
+<!-- JS Implementing Plugins -->
+<script type="text/javascript" src="__PUBLIC__/assets/plugins/back-to-top.js"></script>
+
+</body>
+</html>	

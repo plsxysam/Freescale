@@ -94,6 +94,10 @@ class RbacAction extends CommonAction{
 		}
 	}
 
+	public function deleteNode(){
+		
+	}
+
 	//配置权限
 	public function access() {
 		$rid = I('rid', 0,'intval');
