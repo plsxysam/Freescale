@@ -45,6 +45,8 @@ mysql> alter table fr_blog add bloglock tinyint(1) unsigned not null default 0 a
 //新建attr属性对文章的表
 mysql> create table fr_blog_attr(bid int unsigned not null, aid int unsigned not null, index bid(bid) ,index aid(aid));
 
+//trace表添加tracelock
+mysql> alter table fr_trace add tracelock tinyint(1) unsigned not null default 0 after cid;
 
 //blog表添加简要
 mysql> alter table hd_blog add summary varchar(255) not null default '' after content;

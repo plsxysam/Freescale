@@ -1,0 +1,156 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <title>微迹</title>
+    <include file="Common:bootstrap_jsjqcss" />
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/shortcode_timeline1.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css">
+    <script type="text/javascript">
+        window.UEDITOR_HOME_URL = '__ROOT__/Data/ueditor/';
+        window.onload = function(){
+        window.UEDITOR_CONFIG.initialFrameWidth = 500; //编辑器宽
+        window.UEDITOR_CONFIG.initialFrameHeight = 10; //编辑器高
+        
+        UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
+        UE.Editor.prototype.getActionUrl = function(action){
+            if(action == 'uploadimage') {
+                return "{:U(GROUP_NAME.'/Competition/upload')}";
+            }else{
+                return this._bkGetActionUrl(action);
+            }yige
+        }
+        UE.getEditor('content',{
+            toolbars: [
+                ['source','insertimage', 'snapscreen', 'emotion',
+                'bold', //加粗
+                'italic', //斜体
+                'underline', //下划线
+                'strikethrough', //删除线 
+                'forecolor', 'subscript','superscript' ,
+                'fontsize', //字号 
+                'insertcode', //代码语言
+                'fullscreen', //全屏
+                ]
+            ],
+            maximumWords : 500, //允许的最大字符数
+            elementPathEnabled : false, //是否启用元素路径，默认是显示
+        }
+            );
+        }
+
+    </script>
+    <script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="__ROOT__/Data/ueditor/ueditor.all.min.js"></script>
+</head>	
+
+<body >
+    <include file="Common:nav" />
+<div class="wrapper" >
+
+    <style type="text/css">
+        .wrapper{
+            padding-top: 50px;padding-bottom: 40px;/*
+            /*定位背景图像*/
+            background-position:center 0!important;
+            background-repeat:no-repeat!important;
+            background-attachment:fixed!important;
+            /*规定背景图像的尺寸,cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
+            background-size:cover!important;-webkit-background-size:cover;-o-background-size:cover;
+        }
+    </style>
+
+
+    <!--=== Profile ===-->
+
+    <div class="container content profile" style="margin-top:50px;">
+    	<div class="row">
+            <include file="Common:pro_left" />
+            <!-- Profile right -->            
+            <div class="col-md-9">
+    <div class="container content"> 
+        <ul class="timeline-v1">
+            <li>
+                <div class="timeline-badge primary"><i class="glyphicon glyphicon-record"></i></div>
+                <div class="timeline-panel">
+                    <if condition='ACTION_NAME eq "trace"'>
+                        <form class="from" method="post" action="{:U(GROUP_NAME.'/Profile/toAddTrace')}">
+                        <div class="timeline-body text-justify" style="padding-bottom: 5px;">
+                            <textarea name = "content" id = "content"></textarea>
+                        </div>
+                        <div class="timeline-footer" style="padding: 0px 20px 5px;border-top: 0px;">
+                            <label class="control-label">
+                                <input type="checkbox" checked="checked" name='share' value='1' />分享
+                                
+                                <input checked="checked" value="0" name="bloglock" type="radio">
+                                公开
+                                <input value="1" name="bloglock" type="radio">
+                                私密
+                           </label>
+                            <button type="submit" class="btn btn-primary" style="float: right;width:80px;">发表</button>
+                        </div>
+                        </form>
+                    <else/>
+                        <div class="row" style="margin-left:50px;">
+                        <h4 href="">点滴文字</h4>
+                            <h4 href="">&nbsp;&nbsp;&nbsp;&nbsp;记录生活</h4>
+                            <h4 href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;且行且珍惜</h4>
+                        </div>
+                    </if>
+
+
+
+                    
+                </div>
+            </li>
+            <foreach name="trace" item="v"  key="k">
+                <if condition="$k%2== 0">
+                    <li class="timeline-inverted" style="margin-top:60px;">
+                <else/>
+                    <li>
+                </if>
+                    <div class="timeline-badge primary"><i class="glyphicon glyphicon-record invert"></i></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-body text-justify">
+                            <h5 class="font-light">By {$_SESSION['username']} <h5>
+                            <p>{$v.content}</p>
+                        </div>
+                        <div class="timeline-footer">
+                            <ul class="list-unstyled list-inline blog-info">
+                                <li><i class="fa fa-clock-o"></i> {$v.time|date="F d, Y", ###}</li>
+                                <li><i class="fa fa-comments-o"></i> <a href="http://localhost/unify-v1.7/blog_timeline.html#">12 Comments</a></li>
+
+                                <if condition='ACTION_NAME eq "trace"'>
+                                    <li><a href="{:U(GROUP_NAME . '/Profile/toTrach', array('id' => $v[id], 'type' => 1,'act' => 'trace'))}">删除</a></li>
+                                <else/>
+                                    <li><a href="{:U(GROUP_NAME . '/Profile/toTrach', array('id' => $v[id], 'type' => 0,'act' => 'trace'))}">还原</a></li>
+                                    <li><a href="{:U(GROUP_NAME . '/Profile/deleteTrace', array('id' => $v[id], 'type' => 1,'act' => 'trace'))}">彻底删除</a></li>
+                                </if>
+                                
+
+
+
+                            </ul>
+                            <a class="likes" href="http://localhost/unify-v1.7/blog_timeline.html#"><i class="fa fa-heart"></i>87</a>
+                        </div>
+                    </div>
+                </li>
+            </foreach>
+            
+            
+            <li class="clearfix" style="float: none;"></li>
+        </ul>
+    </div>
+
+
+            </div>
+            <!-- End Profile right -->            
+        </div>
+    </div>
+    <!--=== End Profile ===-->
+
+</div><!--/wrapper-->
+          
+<script type="text/javascript" src="__PUBLIC__/assets/plugins/back-to-top.js"></script>
+
+</body>
+</html>	    

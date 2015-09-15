@@ -6,8 +6,29 @@ Class ProfileAction extends Action{
 		$this->display();
 	}
 
+	Public function trace(){
+		$this->trace = D('TraceRelation')->getTracesList(0,-1,$_SESSION['uid']);
+		$this->display();
+	}
+
+	Public function toAddTrace(){
+		$data = array(
+			'author' => $_SESSION['uid'],
+			'content' => $_POST['content'],
+			'cid' => I('share'),
+			'bloglock' => (int)$_POST['bloglock'],
+			'time' => time(),
+			);
+		if ($bid = M('trace')->add($data)) {
+			$this->success('添加成功', U(GROUP_NAME . '/Profile/trace'));
+		} else {
+			$this->error('添加失败');
+		}
+	}
+
 	//删除到回收站/还原
 	Public function toTrach(){
+		$url = $_GET['act'];
 		$type = (int) $_GET['type'];
 		$msg = $type ? '删除' : '还原';
 		$update = array(
@@ -15,21 +36,28 @@ Class ProfileAction extends Action{
 			'del' => $type
 			);
 		//M('blog')->where(array('id' = > $_GET['id']))->setField('del', 1)
-		if(M('blog')->save($update)){
-			$this->success($msg . '成功', U(GROUP_NAME . '/Blog/index'));
+		if(M($url)->save($update)){
+			$this->success($msg . '成功', U(GROUP_NAME . '/Profile/'. $url));
 		} else {
 			$this->error($msg . '失败');
 		}
 	}
 
 	//回收站
+	Public function tracetrach(){
+		$this->trace = D('TraceRelation')->getTracesList(1,-1,$_SESSION['uid']);
+		$this->display('trace');
+	}
+
+	//回收站
 	Public function trach(){
-		$this->blog = D('BlogRelation')->getBlogs(1);
+		$this->blog = D('BlogRelation')->getBlogsList(1,-1,$_SESSION['uid']);
+		$this->newcount = M('blog')->where(array('del' => 1,'author' =>$_SESSION['uid'],'cid' => 1))->count();
 		$this->display('blog');
 	}
 
 	//彻底删除
-	Public function delete(){
+	Public function deleteBlog(){
 		$id = (int) $_GET['id'];
 		//D('BlogRelation')->relation('attr')->delete($id);
 		if(M('blog')->delete($id)){
@@ -40,11 +68,20 @@ Class ProfileAction extends Action{
 		}
 	}
 
+	//彻底删除
+	Public function deleteTrace(){
+		$id = (int) $_GET['id'];
+		//D('BlogRelation')->relation('attr')->delete($id);
+		if(M('trace')->delete($id)){
+			$this->success('删除成功', U(GROUP_NAME . '/Profile/tracetrach'));
+		} else {
+			$this->error('删除失败');
+		}
+	}
+
 	Public function blog(){
-		$field = array('id','title', 'author', 'summary', 'content', 'time');
-		$where = array('del' => 0,'author' =>$_SESSION['uid']);
-		$this->blog = M('blog')->order('id DESC')->where($where)->field($field)->select();
-		$this->newcount = M('blog')->where(array('del' => 0,'id' =>$_SESSION['uid'],'cid' => 1))->count();
+		$this->blog = D('BlogRelation')->getBlogsList(0,-1,$_SESSION['uid']);
+		$this->newcount = M('blog')->where(array('del' => 0,'author' =>$_SESSION['uid'],'cid' => 1))->count();
 		$this->display();
 	}
 
