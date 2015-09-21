@@ -1,112 +1,132 @@
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<!DOCTYPE html><html lang="en"> 
 <head>
-    <title>个人主页</title>
+    <title>博文</title>
     <include file="Common:bootstrap_jsjqcss" />
     <link rel="stylesheet" href="__PUBLIC__/css/style.css">
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/competition.css">
     <link rel="stylesheet" href="__PUBLIC__/assets/plugins/font-awesome/css/font-awesome.min.css">
 </head>	
 
 <body >
     <include file="Common:nav" />
-<div class="wrapper" >
+    <div class="container" style="margin-top:50px;">
+        <div class="row" style="padding-top:20px;">
+            <div class="col-md-12">
+                <div class="row margin-bottom-10">
+                    <a href="{:U('Index/Blog/index', array('type' => 0))}"  class="btn btn-success " style="margin-left:30px;">所有</a>
+                    <a href="{:U('Index/Blog/index', array('type' => 1))}" class="btn btn-success ">置顶</a>
+                    <a href="{:U('Index/Blog/index', array('type' => 2))}" class="btn btn-success ">精华</a>
+                    <a HREF="{:U('Index/Blog/index', array('type' => -1))}" class="btn btn-success ">普通</a>
 
-    <style type="text/css">
-        .wrapper{
-            padding-top: 50px;padding-bottom: 40px;/*
-            background-color:  #fff !important;
-            font-family: 'microsoft yahei',Arial,sans-serif;
-            background:url("__PUBLIC__/pic/125.jpg") !important;*/
-            /*定位背景图像*/
-            background-position:center 0!important;
-            background-repeat:no-repeat!important;
-            background-attachment:fixed!important;
-            /*规定背景图像的尺寸,cover把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。*/
-            background-size:cover!important;-webkit-background-size:cover;-o-background-size:cover;
-        }
-    </style>
-
-
-    <!--=== Profile ===-->
-
-    <div class="container content profile" style="margin-top:50px;">
-    	<div class="row">
-            <include file="Common:pro_left" />
-            <!-- Profile Content -->            
-            <div class="col-md-9">
-                <div class="profile-body">
-                    <!--Service Block v3-->
-                    <div class="row margin-bottom-10">
-                        <a href=""  class="btn btn-success " style="margin-left:30px;">关注：50</a>
-                        <a href="" class="btn btn-success ">原创：{$newcount}</a>
-                        <a href="" class="btn btn-success ">转载：10</a>
-                        <a HREF="" class="btn btn-success ">收藏：50</a>
-                        <if condition='ACTION_NAME eq "trach"'>
-                            <a href="{:U('Index/Profile/tracetrach')}"  class="btn btn-success ">微迹回收站</a>
-                        </if>
-                        <a href="{:U('Index/Profile/addblog')}" class="btn btn-success " style="float:right;">发布博文</a>
-                    </div><!--/end row-->
-                    <!--End Service Block v3-->
-                    <hr>
-                   <foreach name="blog" item="v">
-                    <div class="row " >
-                        <div class="col-sm-10 news-v3 " style="margin-left:20px;">
-                            <div class="news-v3-in-sm no-padding" style="background-color:#fefefe;">
-                                <ul class="list-inline posted-info">
-                                    <li>By {$_SESSION['username']}</li>
-                                    <li>Posted {$v.time|date="F d, Y", ###}</li>
-                                </ul>
-                                <h2 class="title"><a href="{:U('Index/Profile/bloglog/',array('id'=>$v['id']))}">{$v.title}</a></h2>
-                                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$v.summary}</p>
-                                
-                            </div>
-                        </div>
-
-                        <if condition='ACTION_NAME eq "blog"'>
-                            <div class="col-sm-1 " >
-                                <div class="row" style="background:url('__PUBLIC__/pic/');background-size:cover;width:50px;height:50px;">
-                                    [<a href="{:U('Index/Profile/bloglog/',array('id'=>$v['id']))}">查看</a>]
-                                </div>
-                                <div class="row"  style="background:url('__PUBLIC__/pic/');background-size:cover;width:50px;height:50px;">
-                                    [<a href="">修改</a>]
-                                </div>
-                                <div class="row" style="background:url('__PUBLIC__/pic/');background-size:cover;width:50px;height:50px;">
-                                    [<a href="{:U(GROUP_NAME . '/Profile/toTrach', array('id' => $v[id], 'type' => 1,'act' => ACTION_NAME))}">删除</a>]
-                                </div>
-
-                            </div>
-                        <else/>
-                            <div class="col-sm-1 " >
-                                <div class="row" style="background:url('__PUBLIC__/pic/');background-size:cover;width:50px;height:50px;">
-                                    [<a href="{:U('Index/Profile/bloglog/',array('id'=>$v['id']))}">查看</a>]
-                                </div>
-                                <div class="row"  style="background:url('__PUBLIC__/pic/');background-size:cover;width:50px;height:50px;">
-                                    [<a href="{:U(GROUP_NAME . '/Profile/toTrach', array('id' => $v[id], 'type' => 0,'act' => ACTION_NAME))}">还原</a>]
-
-                                </div>
-                                <div class="row" style="background:url('__PUBLIC__/pic/');background-size:cover;width:50px;height:50px;">
-                                    [<a href="{:U(GROUP_NAME . '/Blog/deleteBlog', array('id' => $v[id]))}">彻底删除</a>]
-                                </div>
-
-                            </div>
-
-                        </if>
-
-                    </div>
-                    <div class="clearfix "><hr></div>
-                </foreach>
-                    
+                    <a href="{:U('Index/Profile/addblog')}" class="btn btn-success " style="float:right;">发布博文</a>
+                </div>
+                <div class="clearfix "><hr></div>
+            </div>
+        </div>
+        <!-- 博文列表标准 -->
+        <style type="text/css">
+            .center-block {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 120px;
+                height: 120px;
+                float:left;
+                background-color:#5cb85c;
+                color: #ffffff;
+                font-size: 48px;
+                line-height: 120px;
+            }
+            .r{
+                margin-left: 14px;
+                margin-right: 14px; 
+                height: 120px;
+            }
+            .title{
+                font-size: 24px;
+            }
+            .col-md-8{padding-left:36px; }
+            .rating-bar-container{
+                color: #737373;
+                height: 23px;
+                font-weight: 400;
+                position: relative;
+                width: 100%;
+            }
+            .bar-label {
+                font-size: 11px;
+                left: -30px;
+                letter-spacing: 1px;
+                position: absolute;
+                top: 4px;
+            }
+            .bar {
+                background: rgb(136, 177, 49) none repeat scroll 0% 0%;
+                opacity: 0.8;
+                transition: width 0.25s ease 0s;
+                display: inline-block;
+                height: 100%;
+            }
+            .bar-number {
+                color: #333;
+                font-size: 11px;
+                left: 5px;
+                position: absolute;
+                top: 4px;
+            }
+        </style>
+        <foreach name="blog" item="v"> 
+        <div class="row r">
+            <div class="center-block col-md-2">
+                <p class="text-center" style="color:#fff;">{$v.click}</p>
+            </div>
+            <div class="col-md-8">
+                <div class="row">
+                    <a class="title" href="{:U('Index/Blog/bloglog/',array('id'=>$v['id']))}" style="text-decoration: none;">{$v.title}
+                        <!-- <span style="color:{$v['attr'][0]['color']};font-size: 14px;">[{$v['attr'][0]['name']}]</span> -->
+                        <!-- <span style="color:#000;font-size: 14px;">[{$v['cate']}]</span> -->
+                        <foreach name="v.attr" item="val">
+                            <span style="color:{$val.color};font-size: 14px;">[{$val['name']}]</span>
+                        </foreach>
+                    </a>
+                    <ul style="margin-top:10px;float:right;font-style: italic;font-size:12px;" class="list-inline posted-info">
+                        <li>By {$v.username}</li>
+                        <li>{$v.time|date="Y.m.d", ###}</li>
+                    </ul>
+                </div>
+                <div class="row">
+                     
+                    <p>{$v.summary}</p>
                 </div>
             </div>
-            <!-- End Profile Content -->            
+            <div class="col-md-2" style="float:right">
+                <div class="rating-histogram"> 
+                    <div class="rating-bar-container five"> 
+                        <span class="bar-label">
+                            <span class="star-tiny star-full"></span>点赞 
+                        </span> 
+                        <span class="bar" style="width:100%;background: #88B131 none repeat scroll 0% 0%;"></span> 
+                        <span class="bar-number">31,04</span> 
+                    </div>
+                    <div class="rating-bar-container four"> 
+                        <span class="bar-label"> 
+                            <span class="star-tiny star-full"></span>评论
+                        </span> 
+                        <span class="bar" style="width:26%;background:#f0ad4e;"></span> 
+                        <span class="bar-number" aria-label="8,220 条评分">8,220</span>
+                    </div>
+                    <div class="rating-bar-container four"> 
+                        <span class="bar-label"> 
+                            <span class="star-tiny star-full"></span>收藏
+                        </span> 
+                        <span class="bar" style="width:12%;background:#d9534f;"></span> 
+                        <span class="bar-number" aria-label="8,220 条评分">220</span>
+                    </div>
+                </div> 
+            </div>
         </div>
-    </div><!--/container-->    
-    <!--=== End Profile ===-->
-
-</div><!--/wrapper-->
+        <hr>
+       </foreach>
+    </div>     
           
 <!-- JS Implementing Plugins -->
 <script type="text/javascript" src="__PUBLIC__/assets/plugins/back-to-top.js"></script>

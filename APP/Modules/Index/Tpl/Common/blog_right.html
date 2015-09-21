@@ -1,0 +1,91 @@
+<!--Left Sidebar-->
+<style type="text/css">
+.bs-docs-sidenav.affix {top: 40px;}
+
+/* >表示第一个子元素 */
+
+.bs-docs-sidenav > li:first-child > a {
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    border-radius: 6px 6px 0 0;
+    }
+
+.bs-docs-sidenav > li > a {
+    display: block;
+    width: 190px \9;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #e5e5e5;
+    }
+
+.bs-docs-sidenav {
+    width: 95%;
+    margin: 30px 0 0 4px;
+    padding: 0;
+    background-color: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    box-shadow: 0 1px 4px rgba(0,0,0,.065);
+    }
+
+.bs-docs-sidenav .icon-chevron-right {
+    float: right;
+    margin-top: 2px;
+    margin-right: -6px;
+    opacity: .25;
+    }
+
+.proimg{
+    margin-bottom: 20px;
+    clear: both;
+    border-radius: 0px;
+}
+</style>
+
+    <div class="col-md-3 md-margin-bottom-40">
+        <img class="img-responsive  proimg" src="__PUBLIC__/pic/1.jpg" alt="">
+        <ul class="nav nav-list bs-docs-sidenav affix-top">
+            <li class="">
+                <a href="{:U('Index/Profile/blog')}" ><i class="icon-chevron-right"></i> 博文</a>
+                
+                    <foreach name = "bloglist" item="v">
+                        <li class="dropdown-header" style="front-size:18px;"><a href="{:U('Index/Blog/bloglog/',array('id'=>$v['id']))}" style="border: 0px solid;padding:0px;"><?php $str = $v['title'];
+                            $lenth = strlen($str);
+                            if($lenth>=42){
+                            $str = substr($str,0,42)."...";
+                            }
+                            echo $str; ?></a> </li>
+                    </foreach>
+                
+            </li>
+            <li class="">
+                <a href="{:U('Index/Profile/trace')}"><i class="icon-chevron-right"></i> 微迹</a>
+                <foreach name = "tracelist" item="v">
+                    <div class="row" style="front-size:18px;margin:10px 10px 0px 14px;"><a href="{:U('Index/')}" style="border: 0px solid;padding:0px;">{$v.content}
+                    </a> </div>
+                </foreach>
+            </li>
+        </ul>
+
+        <foreach name = "tracelist" item="v">
+            <!-- <div class="row" style="front-size:18px;margin:10px 10px 0px 14px;"><a href="{:U('Index/')}" style="border: 0px solid;padding:0px;">{$v.content}
+            </a> </div> -->
+        </foreach>
+
+<script type="text/javascript">
+$(function() {
+    $('.nav li').click(function(e) {
+        $('.nav li').removeClass('active');
+        //$(e.target).addClass('active');
+        $(this).addClass('active');
+    });
+});
+</script>
+            </div>
+            <!--End Left Sidebar-->
+
+
+

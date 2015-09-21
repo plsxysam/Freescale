@@ -15,8 +15,8 @@ Class ProfileAction extends Action{
 		$data = array(
 			'author' => $_SESSION['uid'],
 			'content' => $_POST['content'],
-			'cid' => I('share'),
-			'bloglock' => (int)$_POST['bloglock'],
+			'cid' => I('share','','htmlspecialchars'),
+			'tracelock' => (int)$_POST['tracelock'],
 			'time' => time(),
 			);
 		if ($bid = M('trace')->add($data)) {
@@ -35,8 +35,9 @@ Class ProfileAction extends Action{
 			'id' =>(int) $_GET['id'],
 			'del' => $type
 			);
+		//BUG
 		//M('blog')->where(array('id' = > $_GET['id']))->setField('del', 1)
-		if(M($url)->save($update)){
+		if(M('blog')->save($update)){
 			$this->success($msg . '成功', U(GROUP_NAME . '/Profile/'. $url));
 		} else {
 			$this->error($msg . '失败');
@@ -107,11 +108,11 @@ Class ProfileAction extends Action{
 	//添加博文表单处理
 	Public function toAddBlog () {
 		$data = array(
-			'title' => I('title'),
+			'title' => I('title','','htmlspecialchars'),
 			'author' => $_SESSION['uid'],
-			'summary' => I('summary'),
+			'summary' => I('summary','','htmlspecialchars'),
 			'content' => $_POST['content'],
-			'cid' => I('cid'),
+			'cid' => I('cid','','htmlspecialchars'),
 			'bloglock' => (int)$_POST['bloglock'],
 			'time' => time(),
 			);
